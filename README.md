@@ -10,6 +10,8 @@ Auf dem Server laufen über 40 Container und VMs. Jede Nacht sichert der Proxmox
 
 Ich entscheide, was gebaut wird, und prüfe, ob es stimmt. Beim Code arbeite ich mit KI, und das schreibe ich auch dazu. Ein Ergebnis zählt für mich erst, wenn ich es laufen gesehen habe.
 
+<picture><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/MiaLaMala/MiaLaMala/output/pegel-schmal.svg"><img src="https://raw.githubusercontent.com/MiaLaMala/MiaLaMala/output/pegel.svg" width="100%" alt="Meine Beiträge auf GitHub in den letzten 12 Monaten als LED-Anzeige, jeden Tag neu erzeugt."></picture>
+
 Zurzeit bringe ich mir Elektronik bei, mit Mikrocontrollern und kleinen Einplatinenrechnern. Und wenn der Rechner aus ist, spiele ich Bass, E-Gitarre oder Akustikgitarre.
 
 <a href="https://www.mia-gruenwald.dev"><picture><source media="(max-width: 600px)" srcset="bilder/fuss-schmal.svg"><img src="bilder/fuss.svg" width="100%" alt="Raum Hamburg, mia-gruenwald.dev"></picture></a>

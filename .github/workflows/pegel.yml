@@ -1,0 +1,38 @@
+# Baut jeden Morgen die LED-Anzeige mit Mias Beiträgen neu und legt sie auf den Zweig output.
+# Der Zweig hat immer nur einen Commit, damit main sauber bleibt; Commits des Bots zählen nicht als Mias Beiträge.
+name: Pegel
+
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["werkzeug/**", ".github/workflows/pegel.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  pegel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install fonttools brotli
+      - run: python werkzeug/bau.py --pegel ausgabe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Auf den Zweig output legen
+        working-directory: ausgabe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git init -q -b output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -q -m "Pegel vom $(date -u +%F)"
+          git push -q -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" output
